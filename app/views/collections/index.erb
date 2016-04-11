@@ -1,12 +1,10 @@
-<h1>Welcome, <%=@user.username%> </h1>
+<h1>Welcome, <%=@user.name%> </h1>
 
-<h2>tweeting!</h2>
 
-<h3>look at this tweet</h3>
-<form action='/tweets' method="POST">
-  <label>tweet</label>
-  <br/>
-  <input type="text" name="content"> 
+<% @user.collections.each do |collection| %>
+	<h3><%=collection.name%></h3><a href="/collections/<%=collection.slug%>">Link</a>
+<% end %>
 
-  <input type="submit" value="submit">
-</form> 
+<br>
+
+<a href="/collections/new">Create new collection</a>

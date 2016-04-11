@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   get '/users/:slug' do 
-    @tweets = User.find_by_slug(params[:slug]).tweets
+    @collections = User.find_by_slug(params[:slug]).tweets
     @user = User.find_by_slug(params[:slug])
 
     erb :'/tweets/show'

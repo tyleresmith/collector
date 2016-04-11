@@ -1,5 +1,13 @@
-<h1>Tweets by <%=@user.username%></h1>
+<h1><%=@collection.name%></h1>
+<h2><%=@collection.description%></</h2>
 
-<% @tweets.each do |tweet|%>
-	<p><%= tweet.content%></p>
-<%end%>
+<% @collection.items.each do |item| %>
+	<h3><%=item.name%></h3><a href="/items/<%=item.slug%>">Link</a>
+<% end %>
+
+<form action="/collections/<%=@collection.slug%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input value="Delete Tweet" type="submit">
+</form>
+
+<a href='/tweets/<%=@collection.slug%>/edit'>Edit Collection</a>

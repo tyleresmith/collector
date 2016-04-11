@@ -4,6 +4,10 @@
     <title>Collector</title>
   </head>
   <body>
+  	<% unless locals.empty? %>
+	  <%= message %>
+	<% end %>
+	
     <%= yield %>
   </body>
 

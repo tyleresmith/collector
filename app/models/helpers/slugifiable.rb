@@ -1,6 +1,6 @@
 module Slugifiable
   def slug
-    self.username.gsub(/[^0-9A-Za-z" "]/, '').downcase.split(" ").join("-")
+    self.name.gsub(/[^0-9A-Za-z" "]/, '').downcase.split(" ").join("-")
   end
 
   def find_by_slug(slug)

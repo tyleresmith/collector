@@ -1,18 +1,37 @@
-class UsersController < ApplicationController
+class UserController < ApplicationController
+
+  get '/users' do
+
+    erb :'/users/list'
+  end
+
+  get '/users/collections/:slug' do
+    @collection = Collection.find_by_slug(params[:slug])
+
+    erb :'/users/show'
+  end
+
+  get '/users/collections' do
+    erb :'/users/collections'
+  end
+
+  get '/users/browse' do
+    erb :'/users/browse'
+  end
 
   get '/users/:slug' do 
-    @collections = User.find_by_slug(params[:slug]).tweets
+    
     @user = User.find_by_slug(params[:slug])
-
-    erb :'/tweets/show'
+    erb :'/users/index'
   end
 
-  get '/tweets/new' do
 
+  get '/users/items/:slug' do
+    @item = Item.find_by_slug(params[:slug])
+    
+    erb :'/users/single'
   end
 
-  get '/tweets/:id' do
 
-  end
 
 end

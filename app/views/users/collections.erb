@@ -1,0 +1,8 @@
+<h1>Browsing by collections</h1>
+
+<% Collection.all.each do |collection| %>
+      <a href="/users/collections/<%=collection.slug%>"><%= collection.name %></a>
+      <br>
+      
+
+<% end %>

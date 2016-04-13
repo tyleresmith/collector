@@ -1,0 +1,7 @@
+<h1>Browsing by users</h1>
+
+<% User.all.each do |user| %>
+      <a href="/users/<%=user.slug%>"><%= user.name %></a>
+      
+
+<% end %>

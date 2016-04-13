@@ -1,0 +1,11 @@
+<h1><%=@collection.name%> by <%=@collection.user.name%></h1>
+<h2><%=@collection.description%></h2>
+<br>
+
+
+<% @collection.items.each do |item| %>
+	<img src="https://archive.org/download/mma_cameo_16677/16677.jpg" alt="Place holder for when I figure out how to picture." style="width:128px;height:128px;">
+	<a href="/users/items/<%=item.slug%>"><%=item.name%></a>
+	<p><%=item.description%></p>
+	<br>
+<% end %>

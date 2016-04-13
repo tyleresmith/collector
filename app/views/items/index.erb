@@ -5,10 +5,6 @@
 
 <% @user.collections.each do |collection| %>
 	<h3><%=collection.name%></h3><a href="/collections/<%=collection.slug%>">Link</a>
-	<form action="/collections/<%=collection.slug%>/delete" method="post">
-	  <input id="hidden" type="hidden" name="_method" value="DELETE">
-	  <input value="X" type="submit">
-	</form>
 <% end %>
 
 <br>

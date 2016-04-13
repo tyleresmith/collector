@@ -1,8 +1,13 @@
-<h1>Edit that tweet, make it neat</h1>
 
-<form action='/tweets/<%=@tweet.id%>' method="post">
+<h1>Edit your collection</h1>
+
+<form action='/collections/<%=@collection.slug%>' method="post">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <label>tweet</label>
-  <input type="text" value="<%=@tweet.content%>" name="content">
+  <label>Name</label>
+  <input type="text" value="<%=@collection.name%>" name="name">
+  <br></br>
+  <label>Description</label>
+  <input type="text" value="<%=@collection.description%>" name="description">
+  <br>
   <input type="submit" value="submit">
 </form> 

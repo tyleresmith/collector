@@ -1,6 +1,6 @@
 require './config/environment'
-
 require "sinatra/reloader" if development?
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
   configure :development do
@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions unless test?
     set :session_secret, "secret"
+    register Sinatra::Flash
   end
 
   get '/' do
@@ -32,10 +33,10 @@ class ApplicationController < Sinatra::Base
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-
       redirect to '/collections'
     end
-    redirect '/login',  locals: {message: "Username or password do not match. Please try again."}
+    flash[:error] = "Username or password do not match. Please try again."
+    redirect '/login'
   end
 
   get '/signup' do
@@ -55,8 +56,8 @@ class ApplicationController < Sinatra::Base
      
       redirect '/collections'
     end
-
-    redirect '/signup', locals: {message: "Please enter fill in all fields"}
+    flash[:error] = "Please fill in all fields"
+    redirect '/signup'
     
   end
 
@@ -67,6 +68,7 @@ class ApplicationController < Sinatra::Base
     session.clear
     redirect '/login'
   end
+
 
 
 end

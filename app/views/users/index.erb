@@ -1,0 +1,6 @@
+<h1>Collections of <%=@user.name%> </h1>
+
+
+<% @user.collections.each do |collection| %>
+	<h3><%=collection.name%></h3><a href="/users/collections/<%=collection.slug%>">Link</a>
+<% end %>

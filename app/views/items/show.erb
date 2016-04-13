@@ -1,0 +1,14 @@
+
+
+<h1><%=@item.name%></h1>
+<h2><%=@item.description%></</h2>
+<br>
+
+<form action="/items/<%=@item.slug%>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input value="Delete Item" type="submit">
+</form>
+
+<a href='/items/new'>Add Item</a>
+<br>
+<a href='/items/<%=@item.slug%>/edit'>Edit item</a>

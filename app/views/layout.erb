@@ -4,10 +4,20 @@
     <title>Collector</title>
   </head>
   <body>
-  	<% unless locals.empty? %>
-	  <%= message %>
+  	<a href="/collections">Home</a>
+  	<a href="/users">Browse</a>
+  	<% if !session[:user_id] %>
+	  	<a href="/login">Log In/SignUp</a>
+	<% else %>
+		<a href="/logout">Logout</a>
 	<% end %>
-	
+  	
+
+	<% if flash[:error] %>
+	  <p><%= flash[:error] %></p>
+
+	<% end %>
+
     <%= yield %>
   </body>
 
